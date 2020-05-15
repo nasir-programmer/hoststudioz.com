@@ -22,7 +22,7 @@
 									<li><a href="#">Network In 40 Gb</a></li>
 								</ul>
         					</div>
-        					<a class="price_btn" href="#">Get Started</a>
+        					<a class="price_btn" href="{{ url('pay/1')}}">Get Started</a>
         				</div>
         			</div>
         			<div class="col-lg-3 col-sm-6 p0">
@@ -39,7 +39,7 @@
 									<li><a href="#">Network In 40 Gb</a></li>
 								</ul>
         					</div>
-        					<a class="price_btn" href="#">Get Started</a>
+        					<a class="price_btn" href="{{ url('pay/2')}}">Get Started</a>
         				</div>
         			</div>
         			<div class="col-lg-3 col-sm-6 p0">
@@ -56,7 +56,7 @@
 									<li><a href="#">Network In 80 Gb</a></li>
 								</ul>
         					</div>
-        					<a class="price_btn" href="#">Get Started</a>
+        					<a class="price_btn" href="{{ url('pay/3')}}">Get Started</a>
         				</div>
         			</div>
         			<div class="col-lg-3 col-sm-6 p0">
@@ -73,7 +73,7 @@
 									<li><a href="#">Network In 100 Gb</a></li>
 								</ul>
         					</div>
-        					<a class="price_btn" href="#">Get Started</a>
+        					<a class="price_btn" href="{{ url('pay/4')}}">Get Started</a>
         				</div>
         			</div>
         		</div>

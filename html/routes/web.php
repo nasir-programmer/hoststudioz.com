@@ -27,14 +27,17 @@ Route::get('/elements', function () {return view('elements');})->name('elements'
 
 Route::get('/contact', function () {return view('contact');})->name('contact');
 
-Route::get('/pay', 'PaymentController@index')->name('pay');
+Route::get('/pay/create', 'PaymentsController@create')->name('pay');
 
 Route::get('/payment', 'PaymentController@paymentRequest')->name('payment');
 Route::get('/payment/{plane}', 'PaymentController@paymentRequest')->name('payment');
 Route::post('/payment/status', 'PaymentController@paymentDone')->name('paymentreturn');
 
+Route::get('/pay', 'PaymentController@index')->name('payNow');
+Route::get('/pay/{plane}', 'PaymentController@index');
 
-
+Route::any('/registerandpay', 'PaymentController@registerPay')->name('registerandpay');
+Route::get('/gen', 'HomeController@gen')->name('gen');
 Route::get('/cc', function(){
     Artisan::call('cache:clear');
     Artisan::call('route:clear');
@@ -48,3 +51,4 @@ Route::get('/subscribe', 'HomeController@subscribe')->name('subscribe');
 Route::get('/home', 'HomeController@index')->name('dashboard');
 
 Route::resource('payments', 'PaymentsController');
+Route::resource('services', 'ServicesController');

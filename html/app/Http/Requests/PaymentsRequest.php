@@ -30,8 +30,6 @@ use Illuminate\Validation\Rule;
             'service_id'=>'required',
             'request'=>'required',
             'response'=>'required',
-            'created_at'=>'required',
-            'updated_at'=>'required',
         ];
     }
 

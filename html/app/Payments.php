@@ -27,7 +27,7 @@ class Payments extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'service_id', 'request', 'response', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'service_id', 'request', 'response'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

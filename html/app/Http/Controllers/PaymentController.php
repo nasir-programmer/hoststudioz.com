@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class PaymentController extends Controller
 {
@@ -12,14 +14,50 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(int $request = null)
     {
-       
+        $service = \App\Product::findorfail($request);
+       echo "<pre>" ;
+       print_r($service->property);
+       echo "</pre>" ;
+       exit;
+       return view('pay');
     }
 
     public function pay(PaymentRequest $request)
     {   
+        
+    }
 
+    public function registerPay(Request $request)
+    {   
+        if($request->post()){
+            echo "<pre>";
+            print_r($request->post());
+            exit;
+            $validatedData = $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+            
+            $user = \App\User::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+            ]);
+        } else {
+            return view('pay');
+        }
+       
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        
+        print_r($user->id);
+        exit;
     }
 
     public function paymentRequest(Request $request)
@@ -33,7 +71,6 @@ class PaymentController extends Controller
             exit;
         }
        
-
         $data['data'] = [
             'ORDER_ID' => 123,
             'CUST_ID' => 12,
@@ -70,7 +107,7 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

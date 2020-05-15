@@ -37,4 +37,10 @@ class Services extends Model
     {
         return $this->hasMany('App\Payment');
     }
+
+    public function property()
+    {
+        return $this->hasMany('App\Enum','service_id');
+    }
+
 }
