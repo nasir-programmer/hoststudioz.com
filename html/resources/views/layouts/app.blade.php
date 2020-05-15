@@ -46,16 +46,18 @@
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
 								<li class="nav-item <?= (Route::is('home')) ? 'active' : '' ?>"><a class="nav-link" href="{{ Route('home') }}">Home</a></li> 
-								<li class="nav-item <?= (Route::is('about')) ? 'active' : '' ?>"><a class="nav-link" href="{{ Route('about') }}">About</a></li> 
-								<li class="nav-item <?= (Route::is('service')) ? 'active' : '' ?>"><a class="nav-link" href="{{ Route('service') }}">Services</a>
-								<li class="nav-item submenu dropdown">
+								<!-- <li class="nav-item <?= (Route::is('about')) ? 'active' : '' ?>"><a class="nav-link" href="{{ Route('about') }}">About</a></li>  -->
+								<li class="nav-item <?= (Route::is('service')) ? 'active' : '' ?>"><a class="nav-link" href="{{ Route('service') }}">Services</a></li> 
+								<li class="nav-item <?= (Route::is('pricing')) ? 'active' : '' ?>"><a class="nav-link" href="{{ Route('pricing') }}">Pricing</a></li> 
+								
+								<?php /*<li class="nav-item submenu dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
 									<ul class="dropdown-menu">
 										<li class="nav-item"><a class="nav-link" href="{{ Route('features') }}">Features</a>
 										<li class="nav-item"><a class="nav-link" href="{{ Route('pricing') }}">Pricing</a> 
 										<li class="nav-item"><a class="nav-link" href="{{ Route('elements') }}">Elements</a></li>
 									</ul>
-								</li> 
+								</li>  */ ?>
 								<?php /*<li class="nav-item submenu dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
 									<ul class="dropdown-menu">
@@ -64,7 +66,7 @@
 									</ul>
 								</li> */ ?>
 
-								<li class="nav-item"><a class="nav-link" href="{{ Route('contact') }}">Contact</a></li>
+								<li class="nav-item <?= (Route::is('contact')) ? 'active' : '' ?>"><a class="nav-link" href="{{ Route('contact') }}">Contact</a></li>
                                 @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -128,25 +130,21 @@
 @endsection  
 
 @section('OtherBannerArea')
-<section class="banner_area">
-            <div class="banner_inner d-flex align-items-center">
-            	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background="" style="transform: translateY(-28.908px);"></div>
-				<div class="container">
-					<div class="banner_content text-center">
-						<div class="page_link">
-							<a href="{{ Route('home')}}">Home</a>
-							<a href="{{ Route::currentRouteName() }}"> {{ strtoupper(Route::currentRouteName()) }}</a>
+	<section class="banner_area">
+				<div class="banner_inner d-flex align-items-center">
+					<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background="" style="transform: translateY(-28.908px);"></div>
+					<div class="container">
+						<div class="banner_content text-center">
+							<div class="page_link">
+								<a href="{{ Route('home')}}">Home</a>
+								<a href="{{ Route::currentRouteName() }}"> {{ strtoupper(Route::currentRouteName()) }}</a>
+							</div>
+							<h2> {{ strtoupper(Route::currentRouteName()) }} </h2>
 						</div>
-						<h2> {{ strtoupper(Route::currentRouteName()) }} </h2>
 					</div>
 				</div>
-            </div>
-</section>
+	</section>
 @endsection
-
-<?php
-$myArray = array('data' => 'data');
-?>
 
 @if(Route::is('home'))
     @yield('HomeBannerArea')
@@ -154,302 +152,11 @@ $myArray = array('data' => 'data');
     @yield('OtherBannerArea')
 @endif
 
-@section('FeatureArea')
-        <!--================Feature Area =================-->
-        <section class="feature_area p_120">
-        	<div class="container">	
-        		<div class="main_title">
-        			<h2>Some Features that Made us Unique</h2>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        		</div>
-        		<div class="row feature_inner">
-        			<div class="col-lg-3 col-sm-6">
-        				<div class="feature_item">
-        					<h4>Expert Technicians</h4>
-        					<p>Usage of the Internet is becoming more common due to rapid advancement of technology and power of the Internet is becoming more common due to rapid advancement.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-sm-6">
-        				<div class="feature_item">
-        					<h4>Expert Technicians</h4>
-        					<p>Usage of the Internet is becoming more common due to rapid advancement of technology and power of the Internet is becoming more common due to rapid advancement.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-sm-6">
-        				<div class="feature_item">
-        					<h4>Expert Technicians</h4>
-        					<p>Usage of the Internet is becoming more common due to rapid advancement of technology and power of the Internet is becoming more common due to rapid advancement.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-sm-6">
-        				<div class="feature_item">
-        					<h4>Expert Technicians</h4>
-        					<p>Usage of the Internet is becoming more common due to rapid advancement of technology and power of the Internet is becoming more common due to rapid advancement.</p>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!--================End Feature Area =================-->
-@endsection
 
-@section('PriceArea')     
-        <!--================Price Area =================-->
-        <section class="price_area p_120">
-        	<div class="container">	
-        		<div class="main_title">
-        			<h2>Choose Your Best Pricing Plans</h2>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        		</div>
-        		<div class="price_inner row m0">
-        			<div class="col-lg-3 col-sm-6 p0">
-        				<div class="price_item">
-        					<div class="price_text">
-        						<h3>Basic</h3>
-								<h5>Individuals/Freelancers</h5>
-								<h2>£39<span>/mo</span></h2>
-								<ul class="list">
-									<li><a href="#">RAM 1 GB</a></li>
-									<li><a href="#">Core CPU 1</a></li>
-									<li><a href="#">SSD Storage 20 GB</a></li>
-									<li><a href="#">Transfer 1 TB</a></li>
-									<li><a href="#">Network In 40 Gb</a></li>
-								</ul>
-        					</div>
-        					<a class="price_btn" href="#">Get Started</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-sm-6 p0">
-        				<div class="price_item">
-        					<div class="price_text">
-        						<h3>Starter</h3>
-								<h5>Small Companies</h5>
-								<h2>£59<span>/mo</span></h2>
-								<ul class="list">
-									<li><a href="#">RAM 2 GB</a></li>
-									<li><a href="#">Core CPU 2</a></li>
-									<li><a href="#">SSD Storage 50 GB</a></li>
-									<li><a href="#">Transfer 1 TB</a></li>
-									<li><a href="#">Network In 40 Gb</a></li>
-								</ul>
-        					</div>
-        					<a class="price_btn" href="#">Get Started</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-sm-6 p0">
-        				<div class="price_item">
-        					<div class="price_text">
-        						<h3>Business</h3>
-								<h5>Medium Companies</h5>
-								<h2>£79<span>/mo</span></h2>
-								<ul class="list">
-									<li><a href="#">RAM 4 GB</a></li>
-									<li><a href="#">Core CPU 4</a></li>
-									<li><a href="#">SSD Storage 75 GB</a></li>
-									<li><a href="#">Transfer 2 TB</a></li>
-									<li><a href="#">Network In 80 Gb</a></li>
-								</ul>
-        					</div>
-        					<a class="price_btn" href="#">Get Started</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-sm-6 p0">
-        				<div class="price_item">
-        					<div class="price_text">
-        						<h3>Enterprise</h3>
-								<h5>Large Companies</h5>
-								<h2>£99<span>/mo</span></h2>
-								<ul class="list">
-									<li><a href="#">RAM 8 GB</a></li>
-									<li><a href="#">Core CPU 8</a></li>
-									<li><a href="#">SSD Storage 100 GB</a></li>
-									<li><a href="#">Transfer 2 TB</a></li>
-									<li><a href="#">Network In 100 Gb</a></li>
-								</ul>
-        					</div>
-        					<a class="price_btn" href="#">Get Started</a>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!--================End Price Area =================-->
-@endsection
-
-@section('SolutionArea')
-        <!--================Solution Area =================-->
-        <section class="solution_area p_120">
-        	<div class="container">
-        		<div class="solution_inner">
-        			<h4>Looking for a Custom Solution?</h4>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-        			<a class="white_btn" href="#">Request Free Consultation</a>
-        		</div>
-        	</div>
-        </section>
-        <!--================End Solution Area =================-->
-@endsection
-
-@section('ClientSaysArea')
-        <!--================Client Says Area =================-->
-        <section class="client_says_area p_120">
-        	<div class="container">
-        		<div class="row client_says_inner">
-        			<div class="col-lg-4">
-        				<div class="says_left">
-        					<h3>What our Client’s Say about us</h3>
-        					<p>Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer hears tales of diamonds and begins dreaming.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-sm-6">
-        				<div class="says_item">
-        					<h4>Nellie Vega</h4>
-        					<h5>Head of Marketing, Apple Inc.</h5>
-        					<p>“The following article covers a topic that has recently moved to center stage at least it seems that way. If you’ve been”</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-sm-6">
-        				<div class="says_item"> 
-        					<h4>Estelle Andrews</h4>
-        					<h5>Head of Marketing, Apple Inc.</h5>
-        					<p>“The following article covers a topic that has recently moved to center stage at least it seems that way. If you’ve been”</p>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!--================End Client Says Area =================-->
-@endsection
-
-@section('FeatureArea')
-        <!--================Feature Area =================-->
-        <section class="service_area p_120">
-        	<div class="container">
-        		<div class="main_title white">
-        			<h2>Top Services We Provided</h2>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        		</div>
-        		<div class="row service_inner">
-        			<div class="col-lg-4 col-md-6">
-        				<div class="service_item">
-        					<h4><i class="lnr lnr-cloud"></i>Cloud Hosting</h4>
-        					<p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-6">
-        				<div class="service_item">
-        					<h4><i class="lnr lnr-earth"></i>Web Hosting</h4>
-        					<p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-6">
-        				<div class="service_item">
-        					<h4><i class="lnr lnr-screen"></i>Cloud Computing</h4>
-        					<p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-6">
-        				<div class="service_item">
-        					<h4><i class="lnr lnr-inbox"></i>VPS Hosting</h4>
-        					<p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-6">
-        				<div class="service_item">
-        					<h4><i class="lnr lnr-chart-bars"></i>Server Analytics</h4>
-        					<p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-6">
-        				<div class="service_item">
-        					<h4><i class="lnr lnr-lighter"></i>Data Mining</h4>
-        					<p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!--================End Feature Area =================-->
-@endsection
-
-@section('LatestBlogArea')
-        <!--================Latest Blog Area =================-->
-        <section class="latest_grid_blog_area p_120">
-        	<div class="container">
-        		<div class="main_title">
-        			<h2>Latest Posts from Our Blog</h2>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        		</div>
-        		<div class="row l_blog_inner">
-        			<div class="col-lg-4">
-        				<div class="l_blog_item">
-        					<h6>10 April, 2018</h6>
-        					<a href="#"><h4>Benjamin Franklin S Method Of Habit Formation</h4></a>
-        					<p>There are many kinds of narratives and organizing principles. Science is driven by evidence gathered in experiments, and by the falsification of extant theories and their </p>
-        					<div class="view_text">
-        						<a href="#"><i class="fa fa-eye" aria-hidden="true"></i>4.5k Views</a>
-        						<a href="#"><i class="fa fa-commenting" aria-hidden="true"></i>07</a>
-        						<a href="#"><i class="fa fa-share" aria-hidden="true"></i>362</a>
-        					</div>
-        				</div>
-        			</div>
-        			<div class="col-lg-4">
-        				<div class="l_blog_item">
-        					<h6>10 April, 2018</h6>
-        					<a href="#"><h4>Benjamin Franklin S Method Of Habit Formation</h4></a>
-        					<p>There are many kinds of narratives and organizing principles. Science is driven by evidence gathered in experiments, and by the falsification of extant theories and their </p>
-        					<div class="view_text">
-        						<a href="#"><i class="fa fa-eye" aria-hidden="true"></i>4.5k Views</a>
-        						<a href="#"><i class="fa fa-commenting" aria-hidden="true"></i>07</a>
-        						<a href="#"><i class="fa fa-share" aria-hidden="true"></i>362</a>
-        					</div>
-        				</div>
-        			</div>
-        			<div class="col-lg-4">
-        				<div class="l_blog_item">
-        					<h6>10 April, 2018</h6>
-        					<a href="#"><h4>Benjamin Franklin S Method Of Habit Formation</h4></a>
-        					<p>There are many kinds of narratives and organizing principles. Science is driven by evidence gathered in experiments, and by the falsification of extant theories and their </p>
-        					<div class="view_text">
-        						<a href="#"><i class="fa fa-eye" aria-hidden="true"></i>4.5k Views</a>
-        						<a href="#"><i class="fa fa-commenting" aria-hidden="true"></i>07</a>
-        						<a href="#"><i class="fa fa-share" aria-hidden="true"></i>362</a>
-        					</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!--================End Latest Blog Area =================-->
-@endsection
-
-@section('ClientsLogoArea')
-        <!--================Clients Logo Area =================-->
-        <section class="clients_logo_area p_120">
-        	<div class="container">
-        		<div class="clients_slider owl-carousel">
-        			<div class="item">
-        				<img src="img/clients-logo/c-logo-1.png" alt="">
-        			</div>
-        			<div class="item">
-        				<img src="img/clients-logo/c-logo-2.png" alt="">
-        			</div>
-        			<div class="item">
-        				<img src="img/clients-logo/c-logo-3.png" alt="">
-        			</div>
-        			<div class="item">
-        				<img src="img/clients-logo/c-logo-4.png" alt="">
-        			</div>
-        			<div class="item">
-        				<img src="img/clients-logo/c-logo-5.png" alt="">
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!--================End Clients Logo Area =================-->
-@endsection
 
 @yield('content')
+
+
         <!--================ start footer Area  =================-->	
         <footer class="footer-area p_120">
             <div class="container">

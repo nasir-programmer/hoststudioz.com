@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
-@section('content')
+@include('layouts.extra')
 
+@section('content')
+    @yield('PriceArea')
+    @yield('SolutionArea')
+    
 @endsection
 
-        
+
+
