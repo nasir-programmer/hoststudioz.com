@@ -3,12 +3,11 @@
 @include('layouts.extra')
 
 @section('content')
-   
    @yield('PriceArea')
    @yield('ServiceArea')
-   
    @yield('ClientSaysArea')
    @yield('SolutionArea')
+   @yield('ClientsLogoArea')
 @endsection
 
         
