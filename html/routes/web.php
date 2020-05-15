@@ -30,7 +30,9 @@ Route::get('/contact', function () {return view('contact');})->name('contact');
 Route::get('/pay', 'PaymentController@index')->name('pay');
 
 Route::get('/payment', 'PaymentController@paymentRequest')->name('payment');
+Route::get('/payment/{plane}', 'PaymentController@paymentRequest')->name('payment');
 Route::post('/payment/status', 'PaymentController@paymentDone')->name('paymentreturn');
+
 
 
 Route::get('/cc', function(){
@@ -42,4 +44,7 @@ Route::get('/cc', function(){
     });
 Auth::routes();
 
+Route::get('/subscribe', 'HomeController@subscribe')->name('subscribe');
 Route::get('/home', 'HomeController@index')->name('dashboard');
+
+Route::resource('payments', 'PaymentsController');

@@ -19,22 +19,27 @@ class PaymentController extends Controller
 
     public function pay(PaymentRequest $request)
     {   
-        
+
     }
 
     public function paymentRequest(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'mobile_number' =>'required|numeric|digits:10|unique:events,mobile_number',
-          ]);
+        if($request->post('plane')){
+            echo "<pre>";
+            print_r($request->post('plane'));
+            exit;
+        } else {
+            echo "please select plane";
+            exit;
+        }
+       
 
         $data['data'] = [
             'ORDER_ID' => 123,
             'CUST_ID' => 12,
             'MOBILE_NO' => "9716942962",
             'EMAIL' => "hoststudioz@gmail.com",
-            'TXN_AMOUNT' => 4
+            'TXN_AMOUNT' => 1
         ];
         return view('payment.paymentRequest', $data);
     }
