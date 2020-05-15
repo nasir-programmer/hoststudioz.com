@@ -14,6 +14,21 @@ class PaymentController extends Controller
      */
     public function index()
     {
+       
+    }
+
+    public function pay(PaymentRequest $request)
+    {   
+        
+    }
+
+    public function paymentRequest(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'mobile_number' =>'required|numeric|digits:10|unique:events,mobile_number',
+          ]);
+
         $data['data'] = [
             'ORDER_ID' => 123,
             'CUST_ID' => 12,
@@ -24,8 +39,12 @@ class PaymentController extends Controller
         return view('payment.paymentRequest', $data);
     }
 
-    public function paymentDone(Request $request){
-        
+    public function paymentDone(Request $request)
+    {
+        echo "<pre>";
+        print_r($request->post());
+        echo $request->post('RESPMSG');
+        exit;
     }
 
     /**

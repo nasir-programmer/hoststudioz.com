@@ -261,16 +261,16 @@ function callRefundAPI($refundApiURL, $requestParamList) {
 $paytmParams = array(
     
 	/* Find your MID in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys */
-	"MID" => "CNATYs13241991203128",
+	"MID" => env("MID", "CNATYs13241991203128"), 
     
 	/* Find your WEBSITE in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys */
-	"WEBSITE" => "WEBSTAGING",
+	"WEBSITE" => env("WEBSITE", "WEBSTAGING"),
     
 	/* Find your INDUSTRY_TYPE_ID in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys */
-	"INDUSTRY_TYPE_ID" => "Retail",
+	"INDUSTRY_TYPE_ID" => env("INDUSTRY_TYPE_ID", "Retail"),
     
 	/* WEB for website and WAP for Mobile-websites or App */
-	"CHANNEL_ID" => "WEB",
+	"CHANNEL_ID" => env("CHANNEL_ID", "WEB"),
     
 	/* Enter your unique order id */
 	"ORDER_ID" => $data['ORDER_ID'],

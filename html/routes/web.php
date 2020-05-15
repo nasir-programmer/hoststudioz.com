@@ -26,8 +26,11 @@ Route::get('/pricing', function () {return view('pricing');})->name('pricing');
 Route::get('/elements', function () {return view('elements');})->name('elements');
 
 Route::get('/contact', function () {return view('contact');})->name('contact');
-Route::get('/payment', 'PaymentController@index')->name('payment');
-Route::post('/payment', 'PaymentController@paymentDone')->name('paymentreturn');
+
+Route::get('/pay', 'PaymentController@index')->name('pay');
+
+Route::get('/payment', 'PaymentController@paymentRequest')->name('payment');
+Route::post('/payment/status', 'PaymentController@paymentDone')->name('paymentreturn');
 
 
 Route::get('/cc', function(){
