@@ -28,9 +28,25 @@ class ProductsTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'name' => 'Basic',
-                'description' => 'Individuals/Freelanc',
-                'price' => 1000.0,
+                'name' => 'Starter',
+                'description' => 'Small Companies',
+                'price' => 1600.0,
+                'cycle' => 'Monthly',
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'name' => 'Business',
+                'description' => 'Medium Companies',
+                'price' => 3000.0,
+                'cycle' => 'Monthly',
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'name' => 'Enterprise',
+                'description' => 'Large Companies',
+                'price' => 5500.0,
                 'cycle' => 'Monthly',
             ),
         ));
