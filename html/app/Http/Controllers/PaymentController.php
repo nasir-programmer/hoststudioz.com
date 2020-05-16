@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderConfirm;
 
 class PaymentController extends Controller
 {
@@ -168,14 +170,32 @@ class PaymentController extends Controller
         echo "<pre>";
         print_r($request->post());
         echo $request->post('RESPMSG');
-
-        $service = \App\Services::findorfail();
-        $payment =  \App\Payments::fndorfail();
+       
+        // session(['paymentID' => $paymentID->id]);
+        // session(['serviceOrderID' => $serviceOrderID->id]);
+       
+      
+        $service = \App\Services::findorfail(session::get('serviceOrderID'));
+        $payment =  \App\Payments::findorfail( session::get('paymentID') );
+        
         $payment->response = json_encode($request->post());
         $payment->save();
         $service->active=1;
         $service->save();
+
+        echo "<br>".$payment->user->email;
+
         
+        // Ship order...
+        print_r($service);
+        print_r($payment);
+echo "</pre>";
+
+  
+    dispatch(new \App\Jobs\SendEmailJob($payment));
+  
+    dd('done');
+       
         exit;
     }
 
