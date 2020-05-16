@@ -2,38 +2,6 @@
 
 @section('content')
 
-     <?php /*      @if(isset($model))
-               {{ Form::model($model, ['route' => ['payments.update', $model->id], 'method' => 'patch']) }}
-           @else
-               {{ Form::open(['route' => 'payments.store']) }}
-           @endif
-
-            <div class="form-group">
-                        <?= Form::label('user_id', 'User Id:') ?>
-                        <?= Form::text('user_id', isset($model)?$model->user_id:'' , ['class' => $errors->has('user_id') ? 'form-control is-invalid' : 'form-control'  ]) ?>
-                        @error('user_id')<div class="alert alert-danger">{{ $message }}</div>@enderror
-                    </div>
-	 <div class="form-group">
-                        <?= Form::label('service_id', 'Service Id:') ?>
-                        <?= Form::text('service_id', isset($model)?$model->service_id:'' , ['class' => $errors->has('service_id') ? 'form-control is-invalid' : 'form-control'  ]) ?>
-                        @error('service_id')<div class="alert alert-danger">{{ $message }}</div>@enderror
-                    </div>
-	 <div class="form-group">
-                        <?= Form::label('request', 'Request:') ?>
-                        <?= Form::text('request', isset($model)?$model->request:'' , ['class' => $errors->has('request') ? 'form-control is-invalid' : 'form-control'  ]) ?>
-                        @error('request')<div class="alert alert-danger">{{ $message }}</div>@enderror
-                    </div>
-	            <div class="form-group">
-                        <?= Form::label('response', 'Response:') ?>
-                        <?= Form::text('response', isset($model)?$model->response:'' , ['class' => $errors->has('response') ? 'form-control is-invalid' : 'form-control'  ]) ?>
-                        @error('response')<div class="alert alert-danger">{{ $message }}</div>@enderror
-                    </div>
-	 
-
-
-                     <button type="submit" class="btn btn-primary-outline">{{isset($model)?'Update':'Add'}} payments</button>
-                   <?= Form::close() ?>
-           */ ?>
 
 <div class="container">
       <div class="py-5 text-center">
@@ -48,14 +16,7 @@
       @endguest
       
           @csrf
-          
-          <?php
-// echo "<pre>";
-// print_r($service);
-// echo "</pre>";
-// exit;
-
-?>
+  
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -122,9 +83,9 @@
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Registration</h4>
           @if($errors->any())
-    {{ implode('', $errors->all('<div>:message</div>')) }}
-@endif
-@guest
+				{{ implode('', $errors->all('<div>:message</div>')) }}
+			@endif
+			@guest
             <div class="mb-3">
               <label for="username">Name</label>
               <div class="input-group">
@@ -210,23 +171,15 @@
             <hr class="mb-4">
 
             <h4 class="mb-3">Payment</h4>
-
-            
-            
-            
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
           </form>
         </div>
       </div>
 
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2020 Hoststudioz</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
+     
     </div>
+</div>
+<br>
+<br>
 @endsection
