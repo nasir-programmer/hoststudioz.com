@@ -20,7 +20,7 @@ class Services extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'name', 'discription', 'start', 'expiry', 'active'];
+    protected $fillable = ['user_id', 'name', 'discription', 'active'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -291,7 +291,7 @@ $paytmParams = array(
 	"TXN_AMOUNT" => $data['TXN_AMOUNT'],
     
 	/* on completion of transaction, we will send you the response on this URL */
-	"CALLBACK_URL" => Route('paymentreturn'),
+	"CALLBACK_URL" => $data['CALLBACK_URL'],
 );
 
 /**

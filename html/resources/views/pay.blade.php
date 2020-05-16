@@ -41,46 +41,70 @@
         <h2>Checkout form</h2>
         
       </div>
+      @guest
       <form method="POST" action="{{ route('registerandpay') }}">
+      @else
+      <form method="POST" action="{{ route('loginpay') }}">
+      @endguest
+      
           @csrf
+          
+          <?php
+// echo "<pre>";
+// print_r($service);
+// echo "</pre>";
+// exit;
+
+?>
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">3</span>
+            <span class="badge badge-secondary badge-pill">{{ $service->name }}</span>
           </h4>
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">Product name</h6>
-                <small class="text-muted">Brief description</small>
+                <h6 class="my-0">Price</h6>
+                <small class="text-muted"></small>
               </div>
-              <span class="text-muted">$12</span>
+              <span class="text-muted">{{ $service->price }} INR / {{ $service->cycle }}</span>
             </li>
+            @foreach($service->property as $property)
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-muted">Brief description</small>
+                <h6 class="my-0">{{ $property->keys }}</h6>
+                <small class="text-muted"></small>
               </div>
-              <span class="text-muted">$8</span>
+              <span class="text-muted">{{ $property->value }}</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Third item</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$5</span>
-            </li>
+            @endforeach
             <li class="list-group-item d-flex justify-content-between bg-light">
               <div class="text-success">
                 <h6 class="my-0">Promo code</h6>
-                <small>EXAMPLECODE</small>
+                <small>0000</small>
               </div>
-              <span class="text-success">-$5</span>
+              <span class="text-success">-0</span>
             </li>
             <li class="list-group-item d-flex justify-content-between">
-              <span>Total (USD)</span>
-              <strong>$20</strong>
+              <span>Total (INR)</span>
+              <strong>{{ $service->price }}</strong>
+              {{ Form::hidden('totalAmount', $service->price) }}
+              {{ Form::hidden('serviceName', $service->name) }}
+              {{ Form::hidden('serviceDescription', $service->description) }}
+              <?php 
+            $startDate = date("Y-m-d");
+            $endDate = '';       
+             if($service->cycle == 'Monthly') {
+                $endDate = Date("Y-m-d", strtotime($startDate." +1 Month"));
+             } if($service->cycle == 'Yearly') {
+                $endDate = Date("Y-m-d", strtotime($startDate." +1 Year"));
+             } else {
+                $endDate = Date("Y-m-d", strtotime($startDate." +1 Month"));
+             }      
+            ?>
+            {{ Form::hidden('start', $startDate) }}
+            {{ Form::hidden('expiry', $endDate) }}  
             </li>
           </ul>
 
@@ -93,9 +117,14 @@
             </div>
           <!-- </form> -->
         </div>
+       
+
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Registration</h4>
-         
+          @if($errors->any())
+    {{ implode('', $errors->all('<div>:message</div>')) }}
+@endif
+@guest
             <div class="mb-3">
               <label for="username">Name</label>
               <div class="input-group">
@@ -132,20 +161,51 @@
             </div>
 
             <div class="mb-3">
-              <label for="password-confirm">{{ __('Confirm Password') }} <span class="text-muted">(Optional)</span></label>
+              <label for="password-confirm">{{ __('Confirm Password') }} <span class="text-muted"></span></label>
               <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
             </div>
 
+@else
 
-            
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Your Login Detail</h4>
+         
+            <div class="mb-3">
+              <label for="username">Name</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"></span>
+                </div>
+                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Auth::user()->name }}" required readonly autofocus>
+               
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">Email <span class="text-muted"></span></label>
+              <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ Auth::user()->email }}" required readonly autocomplete="email">
+              @error('email')
+              <div class="invalid-feedback">
+                <strong>{{ $message }}</strong>
+              </div>
+              @enderror
+            </div>
+
+@endguest
+
+
+
             <hr class="mb-4">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="same-address">
-              <label class="custom-control-label" for="same-address">Thank You for chose our services</label>
+              <label class="custom-control-label" for="same-address">Plane Activation</label>
             </div>
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="save-info">
-              <label class="custom-control-label" for="save-info">Save this information for next time</label>
+              <?php
+    
+              ?>
+              <label class="custom-control-label" for="save-info">From {{$startDate}} to {{$endDate }}</label>
             </div>
             <hr class="mb-4">
 

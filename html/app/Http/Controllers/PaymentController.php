@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
+use Session;
 
 class PaymentController extends Controller
 {
@@ -17,11 +19,12 @@ class PaymentController extends Controller
     public function index(int $request = null)
     {
         $service = \App\Product::findorfail($request);
-       echo "<pre>" ;
-       print_r($service->property);
-       echo "</pre>" ;
-       exit;
-       return view('pay');
+       
+    //    echo "<pre>" ;
+    //    print_r($service->property);
+    //    echo "</pre>" ;
+    //    exit;
+       return view('pay', compact('service'));
     }
 
     public function pay(PaymentRequest $request)
@@ -29,16 +32,64 @@ class PaymentController extends Controller
         
     }
 
+    public function loginpay(Request $request)
+    {
+        if($request->post()){
+            $validatedData = $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required'],
+                'totalAmount' => ['required'],
+                'serviceName' => ['required'],
+                'serviceDescription' => ['required'],
+            ]);
+           
+            $serviceOrderID = \App\Services::create([
+                'user_id' => Auth::user()->id,
+                'name' => $request['name'],
+                'discription' => $request['serviceDescription'],
+                'start' => Date("Y-m-d H:i:s", strtotime($request['start'])),
+                'expiry' => Date("Y-m-d H:i:s", strtotime($request['expiry'])),//$request['expiry'],
+                'active' => 0,
+            ]);
+           
+            $paymentRequest['data'] = [
+                'ORDER_ID' => $serviceOrderID->id,
+                'CUST_ID' =>  Auth::user()->id,
+                'MOBILE_NO' => "9716942965",
+                'EMAIL' =>  Auth::user()->email,
+                'TXN_AMOUNT' => $request['totalAmount'],
+                'CALLBACK_URL' => Route('paymentreturn')
+            ];
+            
+            $paymentID = \App\Payments::create([
+                'user_id' => Auth::user()->id,
+                'service_id' => $serviceOrderID->id,
+                'request' => json_encode($paymentRequest['data']),
+                'response' => '',
+                
+            ]);
+           
+            session(['paymentID' => $paymentID->id]);
+            session(['serviceOrderID' => $serviceOrderID->id]);
+           
+            return view('payment.paymentRequest', $paymentRequest); 
+           
+        } else {
+            return view('pay');
+        }
+    }
+
     public function registerPay(Request $request)
     {   
         if($request->post()){
-            echo "<pre>";
-            print_r($request->post());
-            exit;
+          
             $validatedData = $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'totalAmount' => ['required'],
+                'serviceName' => ['required'],
+                'serviceDescription' => ['required'],
             ]);
             
             $user = \App\User::create([
@@ -46,18 +97,49 @@ class PaymentController extends Controller
                 'email' => $request['email'],
                 'password' => Hash::make($request['password']),
             ]);
+           
+            if( Auth::attempt([ 'email' =>  $request['email'], 'password' => Hash::make($request['password']) ]) && Auth::login($user, true)){
+                Auth::login($user, true);
+            } else {
+                echo "please login first then make payment";
+            }
+
+
+            
+            $serviceOrderID = \App\Services::create([
+                'user_id' => $user->id,
+                'name' => $request['name'],
+                'discription' => $request['serviceDescription'],
+                'start' => Date("Y-m-d H:i:s", strtotime($request['start'])),
+                'expiry' => Date("Y-m-d H:i:s", strtotime($request['expiry'])),//$request['expiry'],
+                'active' => 0,
+            ]);
+           
+            $paymentRequest['data'] = [
+                'ORDER_ID' => $serviceOrderID->id,
+                'CUST_ID' =>  $user->id,
+                'MOBILE_NO' => "9716942965",
+                'EMAIL' =>  $user->email,
+                'TXN_AMOUNT' => $request['totalAmount'],
+                'CALLBACK_URL' => Route('paymentreturn')
+            ];
+            
+            $paymentID = \App\Payments::create([
+                'user_id' => $user->id,
+                'service_id' => $serviceOrderID->id,
+                'request' => json_encode($paymentRequest['data']),
+                'response' => '',
+                
+            ]);
+           
+            session(['paymentID' => $paymentID->id]);
+            session(['serviceOrderID' => $serviceOrderID->id]);
+           
+            return view('payment.paymentRequest', $paymentRequest); 
+           
         } else {
             return view('pay');
         }
-       
-        $validatedData = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-        
-        print_r($user->id);
-        exit;
     }
 
     public function paymentRequest(Request $request)
@@ -86,6 +168,14 @@ class PaymentController extends Controller
         echo "<pre>";
         print_r($request->post());
         echo $request->post('RESPMSG');
+
+        $service = \App\Services::findorfail();
+        $payment =  \App\Payments::fndorfail();
+        $payment->response = json_encode($request->post());
+        $payment->save();
+        $service->active=1;
+        $service->save();
+        
         exit;
     }
 

@@ -30,6 +30,7 @@ Route::get('/contact', function () {return view('contact');})->name('contact');
 Route::get('/pay/create', 'PaymentsController@create')->name('pay');
 
 Route::get('/payment', 'PaymentController@paymentRequest')->name('payment');
+
 Route::get('/payment/{plane}', 'PaymentController@paymentRequest')->name('payment');
 Route::post('/payment/status', 'PaymentController@paymentDone')->name('paymentreturn');
 
@@ -37,6 +38,8 @@ Route::get('/pay', 'PaymentController@index')->name('payNow');
 Route::get('/pay/{plane}', 'PaymentController@index');
 
 Route::any('/registerandpay', 'PaymentController@registerPay')->name('registerandpay');
+Route::any('/loginpay', 'PaymentController@loginpay')->name('loginpay');
+
 Route::get('/gen', 'HomeController@gen')->name('gen');
 Route::get('/cc', function(){
     Artisan::call('cache:clear');
