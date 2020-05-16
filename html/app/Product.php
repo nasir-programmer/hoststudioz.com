@@ -24,6 +24,6 @@ class Product extends Model
      */
     public function property()
     {
-        return $this->hasMany('App\Enum');
+        return $this->hasMany('App\Enum')->orderBy('order', 'ASC');
     }
 }

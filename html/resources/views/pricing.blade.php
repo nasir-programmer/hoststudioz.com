@@ -3,9 +3,14 @@
 @include('layouts.extra')
 
 @section('content')
-    @yield('PriceArea')
+    <?php
+    $planes = \App\Product::all();
+    // echo "<pre>";
+    // print_r($planes);
+    // exit;
+    ?>
+    @include('layouts.productlist', $planes)
     @yield('SolutionArea')
-    
 @endsection
 
 
