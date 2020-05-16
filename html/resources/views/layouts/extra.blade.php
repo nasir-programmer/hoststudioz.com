@@ -152,7 +152,7 @@
 
 @section('ClientsLogoArea')
         <!--================Clients Logo Area =================-->
-        <section class="clients_logo_area p_120">
+		<section class="clients_logo_area p_120">
         	<div class="container">
         		<div class="clients_slider owl-carousel">
         			<div class="item">

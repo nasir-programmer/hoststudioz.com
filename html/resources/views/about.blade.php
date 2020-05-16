@@ -5,6 +5,5 @@
 @section('content')
     @yield('AboutusWelcomeArea')
     @yield('SolutionArea')
-    @yield('ClientsLogoArea')
     
 @endsection

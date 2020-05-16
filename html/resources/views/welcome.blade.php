@@ -7,7 +7,7 @@
    @yield('ServiceArea')
    @yield('ClientSaysArea')
    @yield('SolutionArea')
-   @yield('ClientsLogoArea')
+   
 @endsection
 
         

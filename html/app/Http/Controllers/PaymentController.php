@@ -182,16 +182,11 @@ class PaymentController extends Controller
         $payment->save();
         $service->active=1;
         $service->save();
-
         echo "<br>".$payment->user->email;
-
-        
         // Ship order...
         print_r($service);
         print_r($payment);
-echo "</pre>";
-
-  
+        echo "</pre>";
     dispatch(new \App\Jobs\SendEmailJob($payment));
   
     dd('done');

@@ -66,5 +66,4 @@
 @section('content')
     @yield('ContactArea')
     
-    @yield('ClientsLogoArea')
 @endsection

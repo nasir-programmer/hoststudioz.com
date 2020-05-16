@@ -7,7 +7,6 @@ $planes = isset($planes) ? $planes : \App\Product::all();
         	<div class="container">	
         		<div class="main_title">
         			<h2>Choose Your Best Pricing Plans</h2>
-        			
         		</div>
         		<div class="price_inner row m0">
 
@@ -32,5 +31,5 @@ $planes = isset($planes) ? $planes : \App\Product::all();
         			
         		</div>
         	</div>
-        </section>
+</section>
         <!--================End Price Area =================-->
