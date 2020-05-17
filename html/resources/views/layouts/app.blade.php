@@ -6,9 +6,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>Hosthub Hosting Multi</title>
+        <title>Hoststudioz Hosting Solution</title>
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css">
+     <?php /*   <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="vendors/linericon/style.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
@@ -18,8 +18,8 @@
        
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <!-- <link rel="stylesheet" href="{{ url('css/all.css') }}"> -->
+        <link rel="stylesheet" href="vendors/linericon/style.css"> */ ?>
+       
 <?php /*
         <!-- MINIFY LARAMIX FILE -->
         <link rel="stylesheet" href="app/css/bootstrap.css">
@@ -33,6 +33,12 @@
         <link rel="stylesheet" href="app/css/responsive.css">
         <link rel="stylesheet" href="app/css/style.css">
 */ ?>
+
+
+        <link rel="stylesheet" href="vendors/linericon/style.css">
+        <!-- <link rel="stylesheet" href="app/css/bootstrap.css"> -->
+        <link rel="stylesheet" href="{{ url('css/all.css') }}">
+        
     </head>
     <body>
         
@@ -240,7 +246,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
+<?php /*
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -253,12 +259,18 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <script src="js/jquery.ajaxchimp.min.js"></script>
         <!-- <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
         <script src="vendors/counter-up/jquery.counterup.js"></script> -->
-        <script src="js/mail-script.js"></script>
-        <script src="js/theme.js"></script> 
-        <!-- <script src="{{ url('js/all.js') }}"></script> -->
+     */ ?>
+
+
+
+         <script src="js/jquery-3.2.1.min.js"></script>
+         <script src="js/popper.js"></script>
+         
+        <script src="{{ url('js/all.js') }}"></script>
 
         <script type="text/javascript">
         $(window).on('load',function(){
+            alert('test');
                 $('#myModal').modal('show');
             });
         </script>

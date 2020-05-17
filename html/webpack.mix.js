@@ -38,19 +38,19 @@ styles('public/css/responsive.css', 'public/app/css/responsive.css');
 
     
 mix.js([
-    'public/js/jquery-3.2.1.min.js',
-    'public/js/popper.js',
-    'public/js/bootstrap.min.js',
-    'public/js/stellar.js',
-    'public/vendors/lightbox/simpleLightbox.min.js',
-    'public/vendors/nice-select/js/jquery.nice-select.min.js',
-    'public/vendors/isotope/imagesloaded.pkgd.min.js',
-    'public/vendors/isotope/isotope-min.js',
-    'public/vendors/owl-carousel/owl.carousel.min.js',
-    'public/js/jquery.ajaxchimp.min.js',
-    'public/vendors/counter-up/jquery.waypoints.min.js',
-    'public/vendors/counter-up/jquery.counterup.js',
-    'public/js/mail-script.js',
+    // 'public/js/jquery-3.2.1.min.js',
+    // 'public/js/popper.js',
+    // 'public/js/bootstrap.min.js',
+    // 'public/js/stellar.js',
+    // 'public/vendors/lightbox/simpleLightbox.min.js',
+    // 'public/vendors/nice-select/js/jquery.nice-select.min.js',
+    // 'public/vendors/isotope/imagesloaded.pkgd.min.js',
+    // 'public/vendors/isotope/isotope-min.js',
+    // 'public/vendors/owl-carousel/owl.carousel.min.js',
+    // 'public/js/jquery.ajaxchimp.min.js',
+    // 'public/vendors/counter-up/jquery.waypoints.min.js',
+    // 'public/vendors/counter-up/jquery.counterup.js',
+    // 'public/js/mail-script.js',
     'public/js/theme.js',
 ], 'public/js/all.js');
 
