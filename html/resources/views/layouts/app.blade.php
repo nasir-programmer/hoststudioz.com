@@ -270,7 +270,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
         <script type="text/javascript">
         $(window).on('load',function(){
-            alert('test');
+            // alert('test');
                 $('#myModal').modal('show');
             });
         </script>
