@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
         Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
+        RenatoMarinho\LaravelPageSpeed\ServiceProvider::class
 
     ],
 

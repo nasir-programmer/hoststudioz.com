@@ -33,22 +33,52 @@
                             </div>
                         </div>
                     </div>
+
+                    
                     <div class="col-lg-9">
-                        <form class="row contact_form" action="#" onsubmit="return false;" method="post" id="contactForm" name="contactForm" novalidate="novalidate">
+                    <form method="POST" class="row contact_form" action="{{ route('enquiry') }}">     
+                     @csrf
                             <div class="col-md-6">
+                           
+                            <label for="name">Name <span class="text-muted"></span></label>
+                            <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
+                            @error('name')
+                            <div class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @enderror
+           
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                                    <label for="mobile">Mobile <span class="text-muted"></span></label>
+                                    <input id="mobile" type="mobile" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile">
+                                    @error('mobile')
+                                    <div class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+                                    <label for="email">Email <span class="text-muted"></span></label>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    @error('email')
+                                    <div class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
-                                </div>
+
+                               
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="message" id="message" rows="1" placeholder="Enter Message"></textarea>
+                                    <label for="query">Your Query / Message <span class="text-muted"></span></label>
+                                    <textarea id="query" class="form-control @error('query') is-invalid @enderror" name="query" value="{{ old('query') }}" ></textarea>
+                                    @error('query')
+                                    <div class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-12 text-right">
@@ -64,6 +94,26 @@
 @endsection
 
 @section('content')
+    @if(isset($sentQuery) && $sentQuery==true)
+    <div id="myModal" class="modal fade ">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>				
+				<h4 class="modal-title">Thankyou!</h4>	
+			</div>
+			<div class="modal-body">
+				<p class="text-center">Our Team Will Contact You Soon. Check your email for detials.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+			</div>
+		</div>
+	</div>
+</div>        
+    @endif
+   
     @yield('ContactArea')
-    
 @endsection

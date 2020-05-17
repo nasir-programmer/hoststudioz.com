@@ -43,4 +43,5 @@ class Services extends Model
         return $this->hasMany('App\Enum','service_id');
     }
 
+    
 }

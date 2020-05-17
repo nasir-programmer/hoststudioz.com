@@ -100,11 +100,21 @@
                 @enderror
               </div>
             </div>
-
+            
             <div class="mb-3">
               <label for="email">Email <span class="text-muted"></span></label>
               <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
               @error('email')
+              <div class="invalid-feedback">
+                <strong>{{ $message }}</strong>
+              </div>
+              @enderror
+            </div>
+
+            <div class="mb-3">
+              <label for="mobile">Mobile <span class="text-muted"></span></label>
+              <input id="mobile" type="mobile" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile">
+              @error('mobile')
               <div class="invalid-feedback">
                 <strong>{{ $message }}</strong>
               </div>

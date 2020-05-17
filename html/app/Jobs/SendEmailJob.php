@@ -33,7 +33,5 @@ class SendEmailJob implements ShouldQueue
     {
         $payment=$this->details;
         Mail::to($payment->user->email)->queue(new \App\Mail\OrderConfirm($payment));
-        // $email = new OrderConfirm();
-        // Mail::to($this->details['email'])->send($email);
     }
 }

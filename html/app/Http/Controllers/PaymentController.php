@@ -82,12 +82,13 @@ class PaymentController extends Controller
     }
 
     public function registerPay(Request $request)
-    {   
+    {
         if($request->post()){
           
             $validatedData = $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'mobile' => ['required', 'numeric', 'max:9999999999', 'unique:users'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
                 'totalAmount' => ['required'],
                 'serviceName' => ['required'],
@@ -97,13 +98,16 @@ class PaymentController extends Controller
             $user = \App\User::create([
                 'name' => $request['name'],
                 'email' => $request['email'],
+                'mobile' => $request['mobile'],
                 'password' => Hash::make($request['password']),
             ]);
            
-            if( Auth::attempt([ 'email' =>  $request['email'], 'password' => Hash::make($request['password']) ]) && Auth::login($user, true)){
-                Auth::login($user, true);
+            if( Auth::attempt([ 'email' =>  $request['email'], 'password' => Hash::make($request['password']) ]) || Auth::login($user, true)){
+                
+                // Register and login
             } else {
                 echo "please login first then make payment";
+                // exit;
             }
 
 
@@ -120,7 +124,7 @@ class PaymentController extends Controller
             $paymentRequest['data'] = [
                 'ORDER_ID' => $serviceOrderID->id,
                 'CUST_ID' =>  $user->id,
-                'MOBILE_NO' => "9716942965",
+                'MOBILE_NO' => $user->mobile,
                 'EMAIL' =>  $user->email,
                 'TXN_AMOUNT' => $request['totalAmount'],
                 'CALLBACK_URL' => Route('paymentreturn')

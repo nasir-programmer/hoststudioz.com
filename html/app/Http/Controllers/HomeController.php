@@ -26,6 +26,27 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function enquiry(Request $request){
+        if($request->post()){
+            $validatedData = $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255'],
+                'mobile' => ['required', 'numeric', 'max:9999999999'],
+            ]);
+           
+            $Enquiry = \App\Enquiry::create([
+                'name' => $request['name'], 
+                'email' => $request['email'],
+                'contact' => $request['contact'],
+                'query' => $request['query'],
+            ]);
+
+            return view('contact',['sentQuery' => true]);
+
+        }
+            return view('contact');
+    }
+
     public function subscribe(){
         // echo auth()->user()->id;
         // exit;

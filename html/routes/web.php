@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::any('/enquiry', 'HomeController@enquiry')->name('enquiry');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
