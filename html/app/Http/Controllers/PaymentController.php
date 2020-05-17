@@ -36,6 +36,7 @@ class PaymentController extends Controller
 
     public function loginpay(Request $request)
     {
+        // echo Route('paymentreturn');exit;
         if($request->post()){
             $validatedData = $request->validate([
                 'name' => ['required', 'string', 'max:255'],
@@ -57,7 +58,7 @@ class PaymentController extends Controller
             $paymentRequest['data'] = [
                 'ORDER_ID' => $serviceOrderID->id,
                 'CUST_ID' =>  Auth::user()->id,
-                'MOBILE_NO' => "9716942965",
+                'MOBILE_NO' => (int) Auth::user()->mobile,
                 'EMAIL' =>  Auth::user()->email,
                 'TXN_AMOUNT' => $request['totalAmount'],
                 'CALLBACK_URL' => Route('paymentreturn')
