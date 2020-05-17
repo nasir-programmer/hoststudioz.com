@@ -76,9 +76,9 @@ class PaymentController extends Controller
            
             return view('payment.paymentRequest', $paymentRequest); 
            
-        } else {
-            return view('pay');
         }
+            return view('pay');
+        
     }
 
     public function registerPay(Request $request)
@@ -143,9 +143,10 @@ class PaymentController extends Controller
            
             return view('payment.paymentRequest', $paymentRequest); 
            
-        } else {
-            return view('pay');
         }
+            return view('pay');
+        
+
     }
 
     public function paymentRequest(Request $request)
