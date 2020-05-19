@@ -265,8 +265,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
          <script src="js/jquery-3.2.1.min.js"></script>
          <script src="js/popper.js"></script>
-         
-        <script src="{{ url('js/all.js') }}"></script>
+         <script src="js/bootstrap.min.js"></script>
+
+        <!-- <script src="{{ url('js/all.js') }}"></script> -->
 
         <script type="text/javascript">
         $(window).on('load',function(){

@@ -107,6 +107,156 @@ class PaymentsTableSeeder extends Seeder
                 'created_at' => '2020-05-17 07:42:11',
                 'updated_at' => '2020-05-17 07:42:32',
             ),
+            9 => 
+            array (
+                'id' => 10,
+                'user_id' => 13,
+                'service_id' => 27,
+                'request' => '{"ORDER_ID":27,"CUST_ID":13,"MOBILE_NO":"9716942965","EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 13:20:15',
+                'updated_at' => '2020-05-17 13:20:15',
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'user_id' => 13,
+                'service_id' => 28,
+                'request' => '{"ORDER_ID":28,"CUST_ID":13,"MOBILE_NO":"9716942965","EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 13:22:21',
+                'updated_at' => '2020-05-17 13:22:21',
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'user_id' => 13,
+                'service_id' => 29,
+                'request' => '{"ORDER_ID":29,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 13:26:36',
+                'updated_at' => '2020-05-17 13:26:36',
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'user_id' => 13,
+                'service_id' => 30,
+                'request' => '{"ORDER_ID":30,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 13:27:05',
+                'updated_at' => '2020-05-17 13:27:05',
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'user_id' => 13,
+                'service_id' => 31,
+                'request' => '{"ORDER_ID":31,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 13:27:39',
+                'updated_at' => '2020-05-17 13:27:39',
+            ),
+            14 => 
+            array (
+                'id' => 15,
+                'user_id' => 13,
+                'service_id' => 32,
+                'request' => '{"ORDER_ID":32,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 13:29:26',
+                'updated_at' => '2020-05-17 13:29:26',
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'user_id' => 13,
+                'service_id' => 33,
+                'request' => '{"ORDER_ID":33,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 13:32:06',
+                'updated_at' => '2020-05-17 13:32:06',
+            ),
+            16 => 
+            array (
+                'id' => 17,
+                'user_id' => 13,
+                'service_id' => 34,
+                'request' => '{"ORDER_ID":34,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 13:32:33',
+                'updated_at' => '2020-05-17 13:32:33',
+            ),
+            17 => 
+            array (
+                'id' => 18,
+                'user_id' => 13,
+                'service_id' => 35,
+                'request' => '{"ORDER_ID":35,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 14:04:06',
+                'updated_at' => '2020-05-17 14:04:06',
+            ),
+            18 => 
+            array (
+                'id' => 19,
+                'user_id' => 13,
+                'service_id' => 36,
+                'request' => '{"ORDER_ID":36,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 14:05:32',
+                'updated_at' => '2020-05-17 14:05:32',
+            ),
+            19 => 
+            array (
+                'id' => 20,
+                'user_id' => 13,
+                'service_id' => 37,
+                'request' => '{"ORDER_ID":37,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 14:10:59',
+                'updated_at' => '2020-05-17 14:10:59',
+            ),
+            20 => 
+            array (
+                'id' => 21,
+                'user_id' => 13,
+                'service_id' => 38,
+                'request' => '{"ORDER_ID":38,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 14:11:29',
+                'updated_at' => '2020-05-17 14:11:29',
+            ),
+            21 => 
+            array (
+                'id' => 22,
+                'user_id' => 13,
+                'service_id' => 39,
+                'request' => '{"ORDER_ID":39,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 14:23:06',
+                'updated_at' => '2020-05-17 14:23:06',
+            ),
+            22 => 
+            array (
+                'id' => 23,
+                'user_id' => 13,
+                'service_id' => 40,
+                'request' => '{"ORDER_ID":40,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 14:23:20',
+                'updated_at' => '2020-05-17 14:23:20',
+            ),
+            23 => 
+            array (
+                'id' => 24,
+                'user_id' => 13,
+                'service_id' => 41,
+                'request' => '{"ORDER_ID":41,"CUST_ID":13,"MOBILE_NO":9716942965,"EMAIL":"nasiruddin@thriwe.com","TXN_AMOUNT":"1600","CALLBACK_URL":"http:\\/\\/hoststudioz.com\\/payment\\/status"}',
+                'response' => '',
+                'created_at' => '2020-05-17 14:23:40',
+                'updated_at' => '2020-05-17 14:23:40',
+            ),
         ));
         
         

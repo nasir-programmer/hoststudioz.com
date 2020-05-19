@@ -16,10 +16,10 @@ class CreateSubscriptionsTable extends Migration {
 		{
 			$table->bigInteger('id', true)->unsigned();
 			$table->bigInteger('user_id')->unsigned();
-			$table->string('name');
-			$table->string('stripe_id');
-			$table->string('stripe_status');
-			$table->string('stripe_plan');
+			$table->string('name', 191);
+			$table->string('stripe_id', 191);
+			$table->string('stripe_status', 191);
+			$table->string('stripe_plan', 191);
 			$table->integer('quantity');
 			$table->dateTime('trial_ends_at')->nullable();
 			$table->dateTime('ends_at')->nullable();

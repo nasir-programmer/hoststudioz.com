@@ -15,8 +15,8 @@ class CreateEnquiryTable extends Migration {
 		Schema::create('enquiry', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('name');
-			$table->text('email');
+			$table->text('name', 65535);
+			$table->text('email', 65535);
 			$table->string('contact', 12)->nullable();
 			$table->text('query', 65535)->nullable();
 			$table->timestamps();

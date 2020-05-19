@@ -15,6 +15,7 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "~5.0",
         "renatomarinho/laravel-page-speed": "^1.8",
+        "rmccue/requests": "^1.7",
         "wildbit/swiftmailer-postmark": "^3.1"
     },
     "require-dev": {

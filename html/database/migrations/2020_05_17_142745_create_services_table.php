@@ -16,7 +16,7 @@ class CreateServicesTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->string('name', 100);
-			$table->text('discription')->nullable();
+			$table->text('discription', 65535)->nullable();
 			$table->string('start', 50)->nullable();
 			$table->string('expiry', 50)->nullable();
 			$table->boolean('active')->default(1);

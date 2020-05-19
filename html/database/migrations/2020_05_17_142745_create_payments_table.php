@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration {
 			$table->bigInteger('id', true)->unsigned();
 			$table->integer('user_id')->nullable()->index('user_id');
 			$table->integer('service_id')->nullable()->index('service_id');
-			$table->text('request')->nullable();
+			$table->text('request', 65535)->nullable();
 			$table->text('response', 65535)->nullable();
 			$table->timestamps();
 		});

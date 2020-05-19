@@ -431,6 +431,78 @@ class MigrationsTableSeeder extends Seeder
                 'migration' => '2020_05_17_104609_add_foreign_keys_to_services_table',
                 'batch' => 0,
             ),
+            69 => 
+            array (
+                'id' => 70,
+                'migration' => '2020_05_17_142745_create_enquiry_table',
+                'batch' => 0,
+            ),
+            70 => 
+            array (
+                'id' => 71,
+                'migration' => '2020_05_17_142745_create_enums_table',
+                'batch' => 0,
+            ),
+            71 => 
+            array (
+                'id' => 72,
+                'migration' => '2020_05_17_142745_create_jobs_table',
+                'batch' => 0,
+            ),
+            72 => 
+            array (
+                'id' => 73,
+                'migration' => '2020_05_17_142745_create_password_resets_table',
+                'batch' => 0,
+            ),
+            73 => 
+            array (
+                'id' => 74,
+                'migration' => '2020_05_17_142745_create_payments_table',
+                'batch' => 0,
+            ),
+            74 => 
+            array (
+                'id' => 75,
+                'migration' => '2020_05_17_142745_create_products_table',
+                'batch' => 0,
+            ),
+            75 => 
+            array (
+                'id' => 76,
+                'migration' => '2020_05_17_142745_create_services_table',
+                'batch' => 0,
+            ),
+            76 => 
+            array (
+                'id' => 77,
+                'migration' => '2020_05_17_142745_create_subscriptions_table',
+                'batch' => 0,
+            ),
+            77 => 
+            array (
+                'id' => 78,
+                'migration' => '2020_05_17_142745_create_users_table',
+                'batch' => 0,
+            ),
+            78 => 
+            array (
+                'id' => 79,
+                'migration' => '2020_05_17_142747_add_foreign_keys_to_enums_table',
+                'batch' => 0,
+            ),
+            79 => 
+            array (
+                'id' => 80,
+                'migration' => '2020_05_17_142747_add_foreign_keys_to_payments_table',
+                'batch' => 0,
+            ),
+            80 => 
+            array (
+                'id' => 81,
+                'migration' => '2020_05_17_142747_add_foreign_keys_to_services_table',
+                'batch' => 0,
+            ),
         ));
         
         
