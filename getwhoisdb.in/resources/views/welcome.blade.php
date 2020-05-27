@@ -1,0 +1,13 @@
+@extends('layouts.app')
+@include('layouts.extrasection')
+@section('content')
+    @yield('header')
+    @yield('customers')
+    @yield('services')
+    @yield('detail1')
+    @yield('detail2')
+    @yield('lightbox1')
+    @yield('lightbox2')
+    @yield('pricing')
+    @yield('request')
+@endsection
