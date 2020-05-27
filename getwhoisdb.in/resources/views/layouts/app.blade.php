@@ -160,7 +160,7 @@
 @include('layouts.extrasection')
 
 
-@if (Route::is('register') || Route::is('login') || (Auth::check())) 
+@if (Route::is('register') || Route::is('login') || Route::is('serviceplane'))) 
     @yield('otherheader', 'Login')
     @yield('content')
 @else  
