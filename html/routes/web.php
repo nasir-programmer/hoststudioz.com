@@ -14,6 +14,8 @@
 
 Route::any('/enquiry', 'HomeController@enquiry')->name('enquiry');
 
+Route::any('/order', 'HomeController@order')->name('orderService');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');

@@ -54,6 +54,12 @@ class HomeController extends Controller
         // $user->subscription('monthly')->create('test');
     }
 
+    public function order(){
+        // $service = 
+        // $json = json_decode(file_get_contents('http://host.com/api/v1/users/1'), true);
+        return view('order.book');
+    }
+
     public function gen(){
         $tables = \Illuminate\Support\Facades\DB::select('SHOW TABLES from hoststudiozcom');
         foreach($tables as $table) {

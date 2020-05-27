@@ -176,7 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
         Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
-        RenatoMarinho\LaravelPageSpeed\ServiceProvider::class
+        RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
+        // Ixudra\Curl\CurlServiceProvider::class,
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+        // 'Curl' => Ixudra\Curl\Facades\Curl::class,
     ],
 
 ];

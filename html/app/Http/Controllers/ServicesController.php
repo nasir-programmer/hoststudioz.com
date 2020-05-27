@@ -14,7 +14,7 @@
     use Illuminate\Support\Facades\DB;
     use \App\Services;
     use App\Http\Requests\ServicesRequest;
-
+    use Ixudra\Curl\Facades\Curl;
 
     class ServicesController extends Controller
     {
@@ -31,9 +31,15 @@
 
         public function index(Request $request)
         {
-             $model = new Services();
-            $model=$model->paginate(2);
-            return view('services.index', compact('model'));
+
+        $client = new \GuzzleHttp\Client();
+      
+        $response = $client->get('https://billing.time4vps.com/api/category/1/product', [
+        'auth' => ['ph9716942965@gmail.com', 'TH8TJ5MW1yVl'],
+        ]);
+        $response = $response->getBody();
+            // echo $response; exit;
+       return $response;    
         }
 
         /**
