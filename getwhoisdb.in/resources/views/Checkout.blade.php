@@ -6,10 +6,9 @@
 
 @endsection
 @section('content')
-
+  @yield('otherheader')
 <!-- Default form login -->
 @guest
-    @yield('otherheader')
     @yield('login')
 @else
 
